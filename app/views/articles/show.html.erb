@@ -1,0 +1,22 @@
+<div class="navbar">
+  <ul>
+    <li><%= link_to "Wikinimous", articles_path %></li>
+    <li><%= link_to "New Article", new_article_path %></li>
+  </ul>
+</div>
+
+<div class="container">
+  <div class="title">
+    <h1><%= @article.title %></h1>
+    <%= fa_icon "camera-retro" %>
+    <i class="fas fa-trash-alt"></i>
+    <%= link_to 'edit', edit_article_path %>
+    <i class="fas fa-trash-alt">
+      <%= link_to "delete",
+                  article_path(@article),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>
+    </i>
+  </div>
+  <p><%= @article.content %></p>
+</div>
